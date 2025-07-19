@@ -1,7 +1,8 @@
-package com.example.routes
+package com.example.routes.hero
 
 import com.example.models.ApiResponse
-import com.example.repository.HeroRepository
+import com.example.models.hero.Hero
+import com.example.repository.hero.HeroRepository
 import io.ktor.server.application.*
 import io.ktor.http.*
 import io.ktor.server.response.*
@@ -24,12 +25,12 @@ fun Route.getAllHeroes() {
             )
         } catch (e: NumberFormatException) {
             call.respond(
-                message = ApiResponse(success = false, message = "Only Numbers Allowed."),
+                message = ApiResponse<Hero>(success = false, message = "Only Numbers Allowed."),
                 status = HttpStatusCode.BadRequest
             )
         } catch (e: IllegalArgumentException) {
             call.respond(
-                message = ApiResponse(success = false, message = "Heroes not Found."),
+                message = ApiResponse<Hero>(success = false, message = "Heroes not Found."),
                 status = HttpStatusCode.NotFound
             )
         }

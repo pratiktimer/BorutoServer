@@ -1,7 +1,7 @@
-package com.example.repository
+package com.example.repository.hero
 
 import com.example.models.ApiResponse
-import com.example.models.Hero
+import com.example.models.hero.Hero
 
 const val NEXT_PAGE_KEY = "nextPage"
 const val PREVIOUS_PAGE_KEY = "prevPage"
@@ -398,13 +398,13 @@ class HeroRepositoryImpl : HeroRepository {
         )
     )
 
-    override suspend fun getAllHeroes(page: Int): ApiResponse {
-        return ApiResponse(
+    override suspend fun getAllHeroes(page: Int):  ApiResponse<Hero> {
+        return ApiResponse<Hero>(
             success = true,
             message = "ok",
             prevPage = calculatePage(page = page)[PREVIOUS_PAGE_KEY],
             nextPage = calculatePage(page = page)[NEXT_PAGE_KEY],
-            heroes = heroes[page]!!,
+            data = heroes[page]!!,
             lastUpdated = System.currentTimeMillis()
         )
     }
@@ -427,11 +427,11 @@ class HeroRepositoryImpl : HeroRepository {
         return mapOf(PREVIOUS_PAGE_KEY to prevPage, NEXT_PAGE_KEY to nextPage)
     }
 
-    override suspend fun searchHeroes(name: String?): ApiResponse {
-        return ApiResponse(
+    override suspend fun searchHeroes(name: String?):  ApiResponse<Hero> {
+        return  ApiResponse<Hero>(
             success = true,
             message = "ok",
-            heroes = findHeroes(query = name)
+            data = findHeroes(query = name)
         )
     }
 

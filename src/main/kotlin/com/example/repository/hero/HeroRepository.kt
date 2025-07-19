@@ -1,7 +1,7 @@
-package com.example.repository
+package com.example.repository.hero
 
 import com.example.models.ApiResponse
-import com.example.models.Hero
+import com.example.models.hero.Hero
 
 interface HeroRepository {
 
@@ -13,7 +13,7 @@ interface HeroRepository {
     val page4: List<Hero>
     val page5: List<Hero>
 
-    suspend fun getAllHeroes(page: Int = 1): ApiResponse
-    suspend fun searchHeroes(name: String?): ApiResponse
+    suspend fun getAllHeroes(page: Int = 1): ApiResponse<Hero>
+    suspend fun searchHeroes(name: String?): ApiResponse<Hero>
 
 }

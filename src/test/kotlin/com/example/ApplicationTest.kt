@@ -1,9 +1,9 @@
 package com.example
 
 import com.example.models.ApiResponse
-import com.example.repository.HeroRepositoryImpl
-import com.example.repository.NEXT_PAGE_KEY
-import com.example.repository.PREVIOUS_PAGE_KEY
+import com.example.repository.hero.HeroRepositoryImpl
+import com.example.repository.hero.NEXT_PAGE_KEY
+import com.example.repository.hero.PREVIOUS_PAGE_KEY
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*

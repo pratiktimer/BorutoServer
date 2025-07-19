@@ -1,6 +1,6 @@
-package com.example.routes
+package com.example.routes.hero
 
-import com.example.repository.HeroRepository
+import com.example.repository.hero.HeroRepository
 import io.ktor.server.application.*
 import io.ktor.http.*
 import io.ktor.server.response.*
