@@ -18,7 +18,7 @@ fun Route.getAllArticles() {
         try {
             val page = call.request.queryParameters["page"]?.toInt() ?: 1
             println("NEW PAGE: $page")
-            require(page in 1..130)
+            require(page in 1..33)
 
             val apiResponse = heroRepository.getAllArticles(page = page)
             call.respond(

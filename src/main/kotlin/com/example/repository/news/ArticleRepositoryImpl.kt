@@ -29,7 +29,7 @@ class ArticleRepositoryImpl : ArticleRepository {
             article.copy(id = index + 1) // Assign ID locally
         }
 
-        articlesWithId.chunked(5).mapIndexed { pageIndex, chunk ->
+        articlesWithId.chunked(3).mapIndexed { pageIndex, chunk ->
             (pageIndex + 1) to chunk
         }.toMap()
     }
